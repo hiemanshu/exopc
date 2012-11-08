@@ -1,0 +1,10 @@
+on init
+    mkdir /mnt/MicroSD 0000 system system
+
+on boot
+    setprop rild.libpath /system/lib/libhuaweigeneric-ril.so
+    setprop rild.libargs "-d /dev/ttyUSB2 -v /dev/ttyUSB1"
+
+    exec /system/bin/io_switch 0x0 0x1
+
+    setkeycode 0x6d 125
